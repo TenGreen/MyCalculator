@@ -1,6 +1,7 @@
 package com.sky.calculator.controller;
 
-import com.sky.calculator.service.CalculatorService;
+import com.sky.calculator.service.ICalculatorService;
+import com.sky.calculator.service.impl.CalculatorService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -9,10 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/calculator")
 public class CalculatorController {
-    private final CalculatorService calculatorService;
+    private final ICalculatorService service;
 
-    public CalculatorController(CalculatorService calculatorService) {
-        this.calculatorService = calculatorService;
+    public CalculatorController(CalculatorService service) {
+        this.service = service;
     }
 
     @GetMapping()
